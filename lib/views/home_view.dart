@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           gradient: LinearGradient(colors: [
             const Color(0xff5C88ED).withOpacity(.8),
-            const Color(0xff5C88ED).withOpacity(.4),
+            const Color(0xff5C88ED),
           ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -53,6 +53,7 @@ class HomeView extends StatelessWidget {
              const Text("32°",style: TextStyle(color: Color(0xffA9CBEC),fontSize: 50,fontWeight: FontWeight.bold),),
               const SizedBox(height: 10,),
                Text("Cloudy",style: TextStyle(color: Colors.white.withOpacity(.5),fontSize: 25,fontWeight: FontWeight.bold),),
+               Divider(color: Colors.white.withOpacity(.5),thickness: 1,indent: 30,endIndent: 30,),
           ],
         ),
       ),
