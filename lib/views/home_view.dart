@@ -7,12 +7,10 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: null,
-      extendBodyBehindAppBar: true,
       body: Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(right: 20,left: 20,top: 100),
+            margin: const EdgeInsets.only(right: 20,left: 20,top: 85),
             height: 545,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -207,14 +205,61 @@ class HomeView extends StatelessWidget {
               },  child: const Text(
                 "Forecasts",
                 style: TextStyle(
-                    color: Colors.blueAccent,
+                    color: Colors.blue,
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),),
             ],
           ),
-        ],
+ Expanded(
+   child: ListView.builder(itemCount: 10,scrollDirection: Axis.horizontal,itemBuilder: (context, index) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10,left: 15,),
+      child: Container(
+        width:60,
+        decoration: BoxDecoration(
+          borderRadius:  BorderRadius.circular(
+            28,
+          ),
+          gradient: LinearGradient(
+            colors: [
+              const Color(0xff5C88ED).withOpacity(.8),
+              const Color(0xff5C88ED),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child:  Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+         const   Text(
+              "12:00",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              ),
+            ),
+            Image.asset(
+              "assets/cloud.png",
+              width: 30,
+              height: 30,
+            ),
+            const Text(
+              "32°",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       ),
+    );
+   },),
+ ),
+    ],
+    ),
     );
   }
 }
