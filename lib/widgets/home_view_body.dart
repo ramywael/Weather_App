@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_api/widgets/container_item.dart';
 
 import 'custom_text.dart';
+import 'list_view_home.dart';
 import 'list_view_home_item.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -34,12 +35,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           ],
         ),
-        Expanded(
-          child: ListView.builder(itemCount: 10,scrollDirection: Axis.horizontal,itemBuilder: (context, index) {
-            return const ListViewHomeItem();
-          },
-          ),
-        ),
+        const ListViewHome(),
       ],
     );
   }
