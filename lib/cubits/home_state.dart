@@ -6,7 +6,7 @@ abstract class HomeState {}
 class HomeInitial extends HomeState {}
 class HomeLoading extends HomeState {}
 class HomeSucceed extends HomeState {
-  HomeModel? model;
+  final HomeModel? model;
   HomeSucceed({this.model});
 }
 class HomeFailure extends HomeState {

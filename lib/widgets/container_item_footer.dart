@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../models/home_model.dart';
 import 'custom_text.dart';
 
 class ContainerItemFooter extends StatelessWidget {
-  const ContainerItemFooter({Key? key}) : super(key: key);
+  final HomeModel model;
+  const ContainerItemFooter({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +26,8 @@ class ContainerItemFooter extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const CustomText(
-                  text: "12 km/h", color: Colors.white, sizeFont: 15),
+               CustomText(
+                  text: "${model.maxwind_kph.toInt()} km/h", color: Colors.white, sizeFont: 15),
             ],
           ),
           Column(
@@ -38,8 +40,8 @@ class ContainerItemFooter extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const CustomText(
-                  text: "42%", color: Colors.white, sizeFont: 15),
+               CustomText(
+                  text: "${model.humidity.toInt()}%", color: Colors.white, sizeFont: 15),
             ],
           ),
           Column(
@@ -52,8 +54,8 @@ class ContainerItemFooter extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const CustomText(
-                  text: "20%", color: Colors.white, sizeFont: 15),
+               CustomText(
+                  text: "${model.uv.toInt()}%", color: Colors.white, sizeFont: 15),
             ],
           ),
         ],
