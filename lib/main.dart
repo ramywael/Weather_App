@@ -1,11 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_api/services/home_page_service.dart';
 
+import 'cubits/home_cubit.dart';
+import 'helper/consumer.dart';
 import 'views/home_view.dart';
 
-void main() async {
- await HomePageServices(Dio()).getWeatherData();
+void main()  {
+  Bloc.observer= SimpleObserver();
   runApp(const WeatherApp());
 }
 
@@ -14,9 +17,12 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const  MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
+      home: BlocProvider(create: (BuildContext context) {
+        return HomeCubit(HomePageServices(Dio()));
+        },
+      child: const HomeView()),
     );
   }
 }

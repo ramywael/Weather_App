@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weather_api/models/home_model.dart';
 import 'container_item_body.dart';
 class ContainerView extends StatelessWidget {
-  const ContainerView({Key? key}) : super(key: key);
+  const ContainerView({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class ContainerView extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: const ContainerItemBody(),
+      child:  const ContainerItemBody(),
     );
   }
 }
