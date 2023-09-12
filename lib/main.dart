@@ -1,8 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_api/services/home_page_service.dart';
 
 import 'views/home_view.dart';
 
-void main() {
+void main() async {
+ await HomePageServices(Dio()).getWeatherData();
   runApp(const WeatherApp());
 }
 
