@@ -9,7 +9,7 @@ class HomePageServices {
   Future<HomeModel> getWeatherData() async{
     HomeModel? model;
     //Get the weather data from the API
-    Response  response = await dio.get("http://api.weatherapi.com/v1/forecast.json?key=$apiKey&q=London&days=1");
+    Response  response = await dio.get("http://api.weatherapi.com/v1/forecast.json?key=$apiKey&q=London&days=7");
     // we donot need to decode the json data because dio does it for us
     Map<String,dynamic> data = response.data;
     model= HomeModel.fromJson(data);

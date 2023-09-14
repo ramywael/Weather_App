@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_api/cubits/forecasts_list_cubit.dart';
 import 'package:weather_api/services/home_page_service.dart';
+import 'package:weather_api/services/hour_list.dart';
 
 import 'cubits/home_cubit.dart';
 import 'helper/consumer.dart';
@@ -19,10 +21,15 @@ class WeatherApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BlocProvider(create: (BuildContext context) {
-        return HomeCubit(HomePageServices(Dio()));
-        },
-      child: const HomeView()),
+      home: MultiBlocProvider(providers: [
+        BlocProvider<HomeCubit>(
+          create: (context) => HomeCubit(HomePageServices(Dio())),
+        ),
+        BlocProvider<ForecastsListCubit>(
+          create: (context) => ForecastsListCubit(HomeHourDataServices(Dio())),
+        ),
+      ], child: const HomeView()),
+
     );
   }
 }
