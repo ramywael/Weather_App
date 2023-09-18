@@ -6,7 +6,7 @@ class ContainerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 6, left: 6, top: 80),
+      margin: const EdgeInsets.only(right: 6, left: 6, top: 10),
       height: 545,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),

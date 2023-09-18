@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_api/cubits/home_cubit.dart';
 
 import 'custom_text.dart';
 
@@ -7,7 +9,7 @@ class ContainerItemBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.only(top: 12, left: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -17,28 +19,31 @@ class ContainerItemBar extends StatelessWidget {
             width: 40,
             height: 40,
           ),
-           Row(
+          Row(
             children: [
-             const Icon(
+              const Icon(
                 Icons.location_on,
                 color: Colors.white,
                 size: 30,
               ),
-           const   SizedBox(
+              const SizedBox(
                 width: 5,
               ),
-           const   CustomText(
-                  text: "London", color: Colors.white, sizeFont: 17),
-         const     SizedBox(
+               CustomText(
+                  text: BlocProvider.of<HomeCubit>(context).cityName, color: Colors.white, sizeFont: 17),
+              const SizedBox(
                 width: 10,
               ),
-              IconButton(onPressed: () {
+              IconButton(
+                onPressed: () {
 
-              }, icon: const Icon(
-                Icons.arrow_downward_sharp,
-                color: Colors.white,
-                size: 25,
-              ),)
+                },
+                icon: const Icon(
+                  Icons.arrow_downward_sharp,
+                  color: Colors.white,
+                  size: 25,
+                ),
+              )
             ],
           ),
           Padding(

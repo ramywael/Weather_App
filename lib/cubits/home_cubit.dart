@@ -8,6 +8,7 @@ import '../services/home_page_service.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
+  String cityName="London";
   HomeCubit(this.service) : super(HomeInitial());
   HomePageServices  service;
   HomeModel? model;
@@ -16,7 +17,7 @@ class HomeCubit extends Cubit<HomeState> {
   {
     emit(HomeLoading());
     try{
-      model= await service.getWeatherData();
+      model= await service.getWeatherData(cityName: cityName);
        formattedDate = DateFormat('E, MMM d').format(model!.date);
       emit(HomeSucceed(model: model));
     }catch(e)
@@ -30,16 +31,16 @@ class HomeCubit extends Cubit<HomeState> {
     if(  model!.weatherStateName == "Sunny" )
     {
       return "assets/sunny.png";
-    }else if(model!.weatherStateName == "Heavy Rain")
+    }else if(model!.weatherStateName == "Heavy rain")
     {
       return "assets/heavyrain.png";
-    }else if(model!.weatherStateName == "Light Rain")
+    }else if(model!.weatherStateName == "Light ain")
     {
       return "assets/lightrain.png";
     }else if(model!.weatherStateName == "Showers" || model!.weatherStateName == "Light Rain Shower")
     {
       return "assets/lightrainshower.png";
-    }else if(model!.weatherStateName == "Sleet"  || model!.weatherStateName=="Light Sleet" || model!.weatherStateName== "Light Sleet Showers")
+    }else if(model!.weatherStateName == "Sleet"  || model!.weatherStateName=="Light Sleet" || model!.weatherStateName== "Light sleet showers")
     {
       return "assets/lightdrizzle.png";
     }else if(model!.weatherStateName == "Snow" || model!.weatherStateName =="Mist")
@@ -48,10 +49,10 @@ class HomeCubit extends Cubit<HomeState> {
     }else if(model!.weatherStateName == "Thunderstorm" || model!.weatherStateName == "Thunderyoutbreakspossible" || model!.weatherStateName =="Lighting" )
     {
       return "assets/thunderyoutbreakspossible.png";
-    }else if(model!.weatherStateName == "Heavy Cloud")
+    }else if(model!.weatherStateName == "Heavy cloud")
     {
       return "assets/heavycloudy.png";
-    }else if(model!.weatherStateName == "Light Cloud" || model!.weatherStateName == "Over Cast")
+    }else if(model!.weatherStateName == "Light cloud" || model!.weatherStateName == "Over cast")
     {
       return "assets/overcast.png";
     }else if(model!.weatherStateName == "Lightning")
@@ -60,7 +61,7 @@ class HomeCubit extends Cubit<HomeState> {
     }else if(model!.weatherStateName == "Mist")
     {
       return "assets/mist.png";
-    }else if(model!.weatherStateName == "Patchy Rain Possible")
+    }else if(model!.weatherStateName == "Patchy rain possible")
     {
       return "assets/patchyrainpossible.png";
     }else if(model!.weatherStateName == "Patchy Snow Possible")
@@ -75,20 +76,20 @@ class HomeCubit extends Cubit<HomeState> {
     }else if(model!.weatherStateName == "Thundery Outbreaks Possible")
     {
       return "assets/thundery_outbreaks_possible.png";
-    }else if(model!.weatherStateName == "Blowing Snow")
+    }else if(model!.weatherStateName == "Blowing snow")
     {
-      return "assets/blowing_snow.png";
+      return "assets/overcast.png";
     }else if(model!.weatherStateName == "Clear")
     {
       return "assets/clear.png";
-    }else if(model!.weatherStateName == "Partly Cloudy")
+    }else if(model!.weatherStateName == "Partly cloudy")
       {
         return "assets/partlycloudy.png";
       }
     else if(model!.weatherStateName == "Moderate Rain Shower" || model!.weatherStateName == "Heavy Rain Shower")
       {
         return "assets/moderateorheavyrainshower.png";
-      } else if (model!.weatherStateName == "Moderate or Heavy Rain" || model!.weatherStateName == "Moderate Rain")
+      } else if (model!.weatherStateName == "Moderate or Heavy Rain" || model!.weatherStateName == "Moderate rain")
         {
           return "assets/moderaterain.png";
         }

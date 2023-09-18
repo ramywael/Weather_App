@@ -59,16 +59,16 @@ class ListViewHomeItem extends StatelessWidget {
     {
       if (forecastsList.weatherStateName == "Sunny") {
         return "assets/sunny.png";
-      } else if (forecastsList.weatherStateName == "Heavy Rain") {
+      } else if (forecastsList.weatherStateName == "Heavy rain") {
         return "assets/heavyrain.png";
-      } else if (forecastsList.weatherStateName == "Light Rain") {
+      } else if (forecastsList.weatherStateName == "Light rain") {
         return "assets/lightrain.png";
       } else if (forecastsList.weatherStateName == "Showers" ||
-          forecastsList.weatherStateName == "Light Rain Shower") {
+          forecastsList.weatherStateName == "Light rain shower") {
         return "assets/lightrainshower.png";
       } else if (forecastsList.weatherStateName == "Sleet" ||
-          forecastsList.weatherStateName == "Light Sleet" ||
-          forecastsList.weatherStateName == "Light Sleet Showers") {
+          forecastsList.weatherStateName == "Light sleet" ||
+          forecastsList.weatherStateName == "Light sleet showers") {
         return "assets/lightdrizzle.png";
       } else if (forecastsList.weatherStateName == "Snow" ||
           forecastsList.weatherStateName == "Mist") {
@@ -77,38 +77,38 @@ class ListViewHomeItem extends StatelessWidget {
           forecastsList.weatherStateName == "Thunderyoutbreakspossible" ||
           forecastsList.weatherStateName == "Lighting") {
         return "assets/thunderyoutbreakspossible.png";
-      } else if (forecastsList.weatherStateName == "Heavy Cloud") {
+      } else if (forecastsList.weatherStateName == "Heavy cloud") {
         return "assets/heavycloudy.png";
-      } else if (forecastsList.weatherStateName == "Light Cloud" ||
-          forecastsList.weatherStateName == "Over Cast") {
+      } else if (forecastsList.weatherStateName == "Light cloud" ||
+          forecastsList.weatherStateName == "Over cast") {
         return "assets/overcast.png";
       } else if (forecastsList.weatherStateName == "Lightning") {
         return "assets/lightning.png";
       } else if (forecastsList.weatherStateName == "Mist") {
         return "assets/mist.png";
-      } else if (forecastsList.weatherStateName == "Patchy Rain Possible") {
+      } else if (forecastsList.weatherStateName == "Patchy rain possible") {
         return "assets/patchyrainpossible.png";
-      } else if (forecastsList.weatherStateName == "Patchy Snow Possible") {
+      } else if (forecastsList.weatherStateName == "Patchy snow possible") {
         return "assets/patchy_snow_possible.png";
-      } else if (forecastsList.weatherStateName == "Patchy Sleet Possible") {
-        return "assets/patchy_sleet_possible.png";
+      } else if (forecastsList.weatherStateName == "Patchy sleet possible") {
+        return "assets/patchysleetpossible.png";
       } else if (forecastsList.weatherStateName ==
-          "Patchy Freezing Drizzle Possible") {
-        return "assets/patchy_freezing_drizzle_possible.png";
+          "Patchy freezing drizzle possible") {
+        return "assets/patchyfreezingdrizzlepossible.png";
       } else if (forecastsList.weatherStateName ==
-          "Thundery Outbreaks Possible") {
-        return "assets/thundery_outbreaks_possible.png";
-      } else if (forecastsList.weatherStateName == "Blowing Snow") {
-        return "assets/blowing_snow.png";
+          "Thundery outbreaks possible") {
+        return "assets/thunderyoutbreakspossible.png";
+      } else if (forecastsList.weatherStateName == "Blowing snow") {
+        return "assets/overcast.png";
       } else if (forecastsList.weatherStateName == "Clear") {
         return "assets/clear.png";
-      } else if (forecastsList.weatherStateName == "Partly Cloudy") {
+      } else if (forecastsList.weatherStateName == "Partly cloudy") {
         return "assets/partlycloudy.png";
-      } else if (forecastsList.weatherStateName == "Moderate Rain Shower" ||
-          forecastsList.weatherStateName == "Heavy Rain Shower") {
+      } else if (forecastsList.weatherStateName == "Moderate rain shower" ||
+          forecastsList.weatherStateName == "Heavy rain shower") {
         return "assets/moderateorheavyrainshower.png";
-      } else if (forecastsList.weatherStateName == "Moderate or Heavy Rain" ||
-          forecastsList.weatherStateName == "Moderate Rain") {
+      } else if (forecastsList.weatherStateName == "Moderate or Heavy rain" ||
+          forecastsList.weatherStateName == "Moderate rain") {
         return "assets/moderaterain.png";
       } else {
         return "assets/clear.png";
