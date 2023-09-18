@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_api/cubits/forecasts_list_cubit.dart';
 import 'package:weather_api/widgets/container_item.dart';
@@ -16,9 +15,6 @@ class HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   void initState() {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
-      SystemUiOverlay.bottom
-    ]);
     // TODO: implement initState
     super.initState();
     getMethod();
@@ -30,32 +26,34 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   }
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-      const  ContainerView(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-               const Padding(
-              padding:  EdgeInsets.only(left: 20,),
-              child: CustomText(
-                  text: "Today",
-                  color: Colors.black,
-                  sizeFont: 25,
-                  ),
-            ),
-            TextButton(onPressed:() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+        const  ContainerView(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+                 const Padding(
+                padding:  EdgeInsets.only(left: 20,),
+                child: CustomText(
+                    text: "Today",
+                    color: Colors.black,
+                    sizeFont: 25,
+                    ),
+              ),
+              TextButton(onPressed:() {
 
-            }, child: const CustomText(
-                text: "Forecasts",
-                color: Colors.blueAccent,
-                sizeFont: 20,
-                )
-            ),
-          ],
-        ),
-        const ListViewHome(),
-      ],
+              }, child: const CustomText(
+                  text: "Forecasts",
+                  color: Colors.blueAccent,
+                  sizeFont: 20,
+                  )
+              ),
+            ],
+          ),
+         const ListViewHome(),
+        ],
+      ),
     );
   }
 }

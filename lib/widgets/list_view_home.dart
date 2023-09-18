@@ -10,13 +10,14 @@ class ListViewHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: BlocBuilder<ForecastsListCubit,ForecastsListState>(
-        builder: (context, state) {
-          if(state is ForecastsListSucceed)
-            {
-              List<HomeHourModel> forecastsListFiltered=BlocProvider.of<ForecastsListCubit>(context).forecastsListFiltered;
-              return ListView.builder(
+    return BlocBuilder<ForecastsListCubit,ForecastsListState>(
+      builder: (context, state) {
+        if(state is ForecastsListSucceed)
+          {
+            List<HomeHourModel> forecastsListFiltered=BlocProvider.of<ForecastsListCubit>(context).forecastsListFiltered;
+            return SizedBox(
+              height: 130,
+              child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 itemCount: forecastsListFiltered.length,
                 scrollDirection: Axis.horizontal,
@@ -26,18 +27,18 @@ class ListViewHome extends StatelessWidget {
                     currentTime: DateTime.now(),
                   );
                 },
-              );
-                }
-            else if(state is ForecastsListFailure)
+              ),
+            );
+              }
+          else if(state is ForecastsListFailure)
+            {
+              return  Center(child: Text(state.error),);
+            }else
               {
-                return  Center(child: Text(state.error),);
-              }else
-                {
-                  return const Center(child: CircularProgressIndicator(color: Colors.blueAccent),);
-                }
-        },
+                return const Center(child: CircularProgressIndicator(color: Colors.blueAccent),);
+              }
+      },
 
-      ),
     );
   }
 }

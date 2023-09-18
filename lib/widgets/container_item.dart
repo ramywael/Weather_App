@@ -6,10 +6,18 @@ class ContainerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 6, left: 6, top: 10),
-      height: 545,
+      margin: const EdgeInsets.only(right: 12, left: 12, top: 55),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        boxShadow: const[
+          BoxShadow(
+            color: Colors.grey,
+            spreadRadius: 1,
+            blurRadius: 6,
+            offset:  Offset(0, 2), // changes position of shadow
+          ),
+        ],
+
+        borderRadius: BorderRadius.circular(30),
         gradient: LinearGradient(
           colors: [
             const Color(0xff5C88ED).withOpacity(.8),

@@ -1,17 +1,25 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_api/cubits/forecasts_list_cubit.dart';
 import 'package:weather_api/services/home_page_service.dart';
 import 'package:weather_api/services/hour_list.dart';
-
 import 'cubits/home_cubit.dart';
 import 'helper/consumer.dart';
 import 'views/home_view.dart';
 
 void main()  {
+  systemUIHideStatusBar();
   Bloc.observer= SimpleObserver();
   runApp(const WeatherApp());
+}
+
+void systemUIHideStatusBar() {
+  SystemChrome.setSystemUIOverlayStyle( SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.blue.withOpacity(.6), // navigation bar color
+    statusBarColor: Colors.white, // status bar color
+  ));
 }
 
 class WeatherApp extends StatelessWidget {
