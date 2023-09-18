@@ -17,26 +17,28 @@ class ContainerItemBar extends StatelessWidget {
             width: 40,
             height: 40,
           ),
-          const Row(
+           Row(
             children: [
-              Icon(
+             const Icon(
                 Icons.location_on,
                 color: Colors.white,
-                size: 25,
+                size: 30,
               ),
-              SizedBox(
+           const   SizedBox(
                 width: 5,
               ),
-              CustomText(
-                  text: "London", color: Colors.white, sizeFont: 15),
-              SizedBox(
+           const   CustomText(
+                  text: "London", color: Colors.white, sizeFont: 17),
+         const     SizedBox(
                 width: 10,
               ),
-              Icon(
+              IconButton(onPressed: () {
+
+              }, icon: const Icon(
                 Icons.arrow_downward_sharp,
                 color: Colors.white,
                 size: 25,
-              ),
+              ),)
             ],
           ),
           Padding(

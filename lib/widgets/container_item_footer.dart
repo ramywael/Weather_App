@@ -11,7 +11,7 @@ class ContainerItemFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: 30,
+        vertical: 33,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -24,10 +24,10 @@ class ContainerItemFooter extends StatelessWidget {
                 height: 50,
               ),
               const SizedBox(
-                height: 10,
+                height: 17,
               ),
                CustomText(
-                  text: "${model.maxwind_kph.toInt()} km/h", color: Colors.white, sizeFont: 15),
+                  text: "${model.maxwind_kph.toInt()} km/h", color: Colors.white, sizeFont: 17),
             ],
           ),
           Column(
@@ -38,10 +38,10 @@ class ContainerItemFooter extends StatelessWidget {
                 height: 50,
               ),
               const SizedBox(
-                height: 10,
+                height: 17,
               ),
                CustomText(
-                  text: "${model.humidity.toInt()}%", color: Colors.white, sizeFont: 15),
+                  text: "${model.humidity.toInt()}%", color: Colors.white, sizeFont: 17),
             ],
           ),
           Column(
@@ -52,10 +52,10 @@ class ContainerItemFooter extends StatelessWidget {
                 height: 50,
               ),
               const SizedBox(
-                height: 10,
+                height: 17,
               ),
                CustomText(
-                  text: "${model.uv.toInt()}%", color: Colors.white, sizeFont: 15),
+                  text: "${model.uv.toInt()}%", color: Colors.white, sizeFont: 17),
             ],
           ),
         ],

@@ -5,14 +5,9 @@ import 'container_item_bar.dart';
 import 'container_item_footer.dart';
 import 'custom_text.dart';
 
-class ContainerItemBody extends StatefulWidget {
+class ContainerItemBody extends StatelessWidget {
    const  ContainerItemBody({Key? key,}) : super(key: key);
 
-  @override
-  State<ContainerItemBody> createState() => _ContainerItemBodyState();
-}
-
-class _ContainerItemBodyState extends State<ContainerItemBody> {
   @override
   Widget build(BuildContext context) {
     return  BlocBuilder<HomeCubit,HomeState>(
@@ -26,9 +21,9 @@ class _ContainerItemBodyState extends State<ContainerItemBody> {
               children: [
                 const ContainerItemBar(),
                 Image.asset(
-                  "assets/cloud.png",
-                  width: 200,
-                  height: 200,
+                  BlocProvider.of<HomeCubit>(context).getImage(),
+                  width: 180,
+                  height: 180,
                 ),
                 CustomText(text: "${model!.temp}°", color: const Color(0xffA9CBEC), sizeFont: 50),
                 const SizedBox(
