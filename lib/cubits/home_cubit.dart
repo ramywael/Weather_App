@@ -13,6 +13,7 @@ class HomeCubit extends Cubit<HomeState> {
   HomePageServices  service;
   HomeModel? model;
   String? formattedDate;
+
   Future<void> getHomePageData() async
   {
     emit(HomeLoading());

@@ -12,7 +12,16 @@ import 'views/home_view.dart';
 void main()  {
   systemUIHideStatusBar();
   Bloc.observer= SimpleObserver();
-  runApp(const WeatherApp());
+  runApp( 
+  MultiBlocProvider(
+    providers: [
+      BlocProvider<HomeCubit>(
+        create: (BuildContext context) => HomeCubit(HomePageServices(Dio()))),
+      BlocProvider<ForecastsListCubit>(
+        create: (BuildContext context) => ForecastsListCubit(HomeHourDataServices(Dio()))),
+    ]
+    , child:  const WeatherApp())
+  );
 }
 
 void systemUIHideStatusBar() {
@@ -27,17 +36,9 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MultiBlocProvider(providers: [
-        BlocProvider<HomeCubit>(
-          create: (context) => HomeCubit(HomePageServices(Dio())),
-        ),
-        BlocProvider<ForecastsListCubit>(
-          create: (context) => ForecastsListCubit(HomeHourDataServices(Dio())),
-        ),
-      ], child: const HomeView()),
-
+      home:  HomeView(),
     );
   }
 }

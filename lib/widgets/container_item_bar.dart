@@ -39,13 +39,13 @@ class ContainerItemBar extends StatelessWidget {
                 onPressed: () {
                   showModalBottomSheet(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(6),
                     ),
                     isScrollControlled: true,
                     showDragHandle: true,
                     context: context,
-                    builder: (context) {
-                    return  const AddCityName();
+                    builder: (BuildContext context) {
+                    return const AddCityName();
                   },
                   );
 

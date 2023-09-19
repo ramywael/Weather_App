@@ -6,15 +6,21 @@ part 'forecasts_list_state.dart';
 
 class ForecastsListCubit extends Cubit<ForecastsListState> {
   ForecastsListCubit(this.service) : super(ForecastsListInitial());
+  String cityName = "London";
   HomeHourDataServices  service;
   List <HomeHourModel>? model;
   final currentTime = DateTime.now();
-  final forecastsListFiltered = <HomeHourModel> [];
+    final List<HomeHourModel> forecastsListFiltered = <HomeHourModel> [];
   Future<void> getHomePageDataList() async
   {
+    if(model!=null)
+      {
+        model!.clear();
+      }
     emit(ForecastsListLoading());
     try{
-      model=await service.getWeatherData();
+      model=await service.getWeatherData(cityName: cityName);
+      forecastsListFiltered.clear();
       final currentIndex = model?.indexWhere((forecast) =>
       forecast.time.hour == currentTime.hour);
       if(currentIndex != -1)
