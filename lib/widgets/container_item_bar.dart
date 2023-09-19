@@ -38,6 +38,9 @@ class ContainerItemBar extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   showModalBottomSheet(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                     isScrollControlled: true,
                     showDragHandle: true,
                     context: context,
