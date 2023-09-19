@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_api/cubits/home_cubit.dart';
 
+import 'add_city_name.dart';
 import 'custom_text.dart';
 
 class ContainerItemBar extends StatelessWidget {
@@ -41,17 +42,7 @@ class ContainerItemBar extends StatelessWidget {
                     showDragHandle: true,
                     context: context,
                     builder: (context) {
-                    return  Container(
-                      margin:  EdgeInsets.only(right: 20,left: 20,bottom:MediaQuery.of(context).viewInsets.bottom+20),
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          hintText: "Enter City Name",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(12)),
-                          ),
-                        ),
-                      ),
-                    );
+                    return  const AddCityName();
                   },
                   );
 
@@ -80,3 +71,4 @@ class ContainerItemBar extends StatelessWidget {
     );
   }
 }
+
