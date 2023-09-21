@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_api/cubits/home_cubit.dart';
-
 import 'add_city_name.dart';
 import 'custom_text.dart';
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_api/cubits/forecasts_list_cubit.dart';
-import 'package:weather_api/models/home_model.dart';
+import 'package:weather_api/views/detail_view.dart';
 import 'package:weather_api/widgets/container_item.dart';
 import '../cubits/home_cubit.dart';
 import 'custom_text.dart';
@@ -43,7 +44,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     ),
               ),
               TextButton(onPressed:() {
-
+                Navigator.pushNamed(context, DetailView.routeName);
               }, child: const CustomText(
                   text: "Forecasts",
                   color: Colors.blueAccent,
