@@ -7,7 +7,8 @@ class HomeInitial extends HomeState {}
 class HomeLoading extends HomeState {}
 class HomeSucceed extends HomeState {
   final HomeModel? model;
-  HomeSucceed({this.model});
+  final List<HomeHourModel> forecastsList;
+  HomeSucceed(this.forecastsList, {this.model});
 }
 class HomeFailure extends HomeState {
   final String error;

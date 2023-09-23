@@ -17,8 +17,8 @@ void main()  {
     providers: [
       BlocProvider<HomeCubit>(
         create: (BuildContext context) => HomeCubit(HomePageServices(Dio()))),
-      BlocProvider<ForecastsListCubit>(
-        create: (BuildContext context) => ForecastsListCubit(HomeHourDataServices(Dio()))),
+      // BlocProvider<ForecastsListCubit>(
+      //   create: (BuildContext context) => ForecastsListCubit(HomeHourDataServices(Dio()))),
     ]
     , child:  const WeatherApp())
   );

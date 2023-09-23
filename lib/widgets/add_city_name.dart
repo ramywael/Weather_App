@@ -26,10 +26,10 @@ class _AddCityNameState extends State<AddCityName> {
         onSubmitted: (value)  {
          cityName=value;
           BlocProvider.of<HomeCubit>(context).cityName = cityName!;
-          BlocProvider.of<ForecastsListCubit>(context).cityName =
-              cityName!;
+          // BlocProvider.of<ForecastsListCubit>(context).cityName =
+          //     cityName!;
           BlocProvider.of<HomeCubit>(context).getHomePageData();
-          BlocProvider.of<ForecastsListCubit>(context).getHomePageDataList();
+          // BlocProvider.of<ForecastsListCubit>(context).getHomePageDataList();
           _controller.clear();
         },
         controller: _controller,

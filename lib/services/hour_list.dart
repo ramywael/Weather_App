@@ -4,7 +4,9 @@ import 'package:weather_api/models/list_model.dart';
 class HomeHourDataServices {
   final Dio dio;
   final String apiKey = "f79021cda50a4932b50114701230705";
-  HomeHourDataServices(this.dio,);
+  HomeHourDataServices(
+    this.dio,
+  );
   List<HomeHourModel> model = [];
 
   Future<List<HomeHourModel>> getWeatherData({required String cityName}) async {
