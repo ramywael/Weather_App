@@ -23,13 +23,14 @@ class _AddCityNameState extends State<AddCityName> {
           left: 20,
           bottom: MediaQuery.of(context).viewInsets.bottom + 20),
       child: TextField(
-        onSubmitted: (value) async {
+        onSubmitted: (value)  {
          cityName=value;
           BlocProvider.of<HomeCubit>(context).cityName = cityName!;
           BlocProvider.of<ForecastsListCubit>(context).cityName =
               cityName!;
-         await BlocProvider.of<HomeCubit>(context).getHomePageData();
+          BlocProvider.of<HomeCubit>(context).getHomePageData();
           BlocProvider.of<ForecastsListCubit>(context).getHomePageDataList();
+          _controller.clear();
         },
         controller: _controller,
         cursorColor: Colors.blue,
