@@ -10,7 +10,8 @@ class DetailScreenFailure extends DetailScreenState {
 }
 class DetailScreenSucceed extends DetailScreenState {
   final DetailContainerItem model;
-  DetailScreenSucceed({required this.model});
+  final List<DetailListModel> listModel;
+  DetailScreenSucceed({required this.listModel,required this.model});
 }
 class DetailScreenLoading extends DetailScreenState {
 
