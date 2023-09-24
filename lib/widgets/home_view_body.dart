@@ -33,75 +33,59 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        if (state is HomeSucceed) {
-          return SingleChildScrollView(
-            child: BlocBuilder<HomeCubit, HomeState>(
-              builder: (context, state) {
-                if (state is HomeFailure) {
-                  return const Center(
-                    child: Text("Error"),
-                  );
-                } else if (state is HomeSucceed) {
-                  final model = state.model;
-                  final forecastList=state.forecastsList;
-                  return Column(
-                    children: [
-                      ContainerView(model: model!),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(
-                              left: 20,
-                            ),
-                            child: CustomText(
-                              text: "Today",
-                              color: Colors.black,
-                              sizeFont: 25,
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                context,
-                                DetailView.routeName,
-                              );
-                            },
-                            child: const CustomText(
-                              text: "Forecasts",
-                              color: Colors.blueAccent,
-                              sizeFont: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                       ListViewHome(forecastsList: forecastList,),
-                    ],
-                  );
-                } else {
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.black,
+    return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
+      if (state is HomeSucceed) {
+        final model = state.model;
+        final forecastList = state.forecastsList;
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              ContainerView(model: model!),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(
+                      left: 20,
                     ),
-                  );
-                }
-              },
-            ),
-          );
-        } else if (state is HomeFailure) {
-          return  Center(
-            child: Text(state.error),
-          );
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: Colors.lightBlue,
-            ),
-          );
-        }
-      },
-    );
+                    child: CustomText(
+                      text: "Today",
+                      color: Colors.black,
+                      sizeFont: 25,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        DetailView.routeName,
+                      );
+                    },
+                    child: const CustomText(
+                      text: "Forecasts",
+                      color: Colors.blueAccent,
+                      sizeFont: 20,
+                    ),
+                  ),
+                ],
+              ),
+              ListViewHome(
+                forecastsList: forecastList,
+              ),
+            ],
+          ),
+        );
+      } else if (state is HomeFailure) {
+        return Center(
+          child: Text(state.error),
+        );
+      } else {
+        return const Center(
+          child: CircularProgressIndicator(
+            color: Colors.lightBlue,
+          ),
+        );
+      }
+    });
   }
 }

@@ -16,6 +16,7 @@ class _DetailViewState extends State<DetailView> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
+
       SystemUiOverlayStyle(
         systemNavigationBarColor:
             Colors.blue.withOpacity(.6), // navigation bar color
@@ -170,7 +171,7 @@ class _DetailViewState extends State<DetailView> {
                                       ),
                                     ),
                                     const SizedBox(
-                                      width: 55,
+                                      width: 70,
                                     ),
                                     Text(
                                       "${model.humidity_h.toInt()} %",

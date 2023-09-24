@@ -43,7 +43,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   }
 
-  Future<List<HomeHourModel>> getForecastList(dynamic data) async {
+  Future<void> getForecastList(dynamic data) async {
     // modelHour = await services.getWeatherData(cityName: cityName);
     List<dynamic> list = data["forecast"]["forecastday"][0]["hour"];
     for(var hourItem in list)
@@ -66,7 +66,6 @@ class HomeCubit extends Cubit<HomeState> {
       forecastsListFiltered.addAll(modelHour.sublist(currentIndex + 1));
       forecastsListFiltered.addAll(modelHour.sublist(0, currentIndex));
     }
-    return forecastsListFiltered;
   }
 
 
