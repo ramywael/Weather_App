@@ -11,14 +11,13 @@ part 'detail_screen_state.dart';
 class DetailScreenCubit extends Cubit<DetailScreenState> {
   Map<String,dynamic>? data;
    final HomePageServices service;
-   final String cityName ="London";
    List<DetailListModel> detailList=[];
      List<dynamic>? list;
      DetailContainerItem? modelContainer;
      DetailListModel? model;
   DetailScreenCubit({required this.service}) : super(DetailScreenInitial());
 
-  Future<void> getDetailScreenData() async {
+  Future<void> getDetailScreenData({String cityName="London"}) async {
     try {
       if(detailList.isNotEmpty )
         {

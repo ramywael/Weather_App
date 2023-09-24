@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_api/cubits/detail_screen/detail_screen_cubit.dart';
 import 'package:weather_api/cubits/forecasts_list_cubit.dart';
 import '../cubits/home_cubit.dart';
 

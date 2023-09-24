@@ -59,7 +59,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   TextButton(
                     onPressed: () {
                       BlocProvider.of<DetailScreenCubit>(context)
-                          .getDetailScreenData();
+                          .getDetailScreenData(cityName: BlocProvider.of<HomeCubit>(context).cityName);
                       Navigator.push(
                         context,
                         PageRouteBuilder(

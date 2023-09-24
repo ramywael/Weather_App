@@ -226,6 +226,7 @@ class _DetailViewState extends State<DetailView> {
                     {
                       final model =state.listModel;
                       return ListView.separated(
+                        physics: const BouncingScrollPhysics(),
                         separatorBuilder: (context, index) {
                           return const SizedBox(
                             height:7,
