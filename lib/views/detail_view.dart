@@ -107,7 +107,7 @@ class _DetailViewState extends State<DetailView> {
                                             child: Column(
                                               children: [
                                                 Image.asset(
-                                                  BlocProvider.of<HomeCubit>(context).getCurrentImage(),
+                                                  BlocProvider.of<DetailScreenCubit>(context).modelContainer!.getContainerImage(),
                                                   height: 160,
                                                   width: 160,
                                                 ),
@@ -374,83 +374,4 @@ class _DetailListDailyState extends State<DetailListDaily> {
     );
   }
 
-  // String getImage() {
-  //   if(  widget.model.weatherStateName == "Sunny" )
-  //   {
-  //     return "assets/sunny.png";
-  //   }else if(widget.model.weatherStateName == "Heavy rain")
-  //   {
-  //     return "assets/heavyrain.png";
-  //   }else if(widget.model.weatherStateName == "Cloud")
-  //   {
-  //     return "assets/cloud.png";
-  //   }
-  //   else if(widget.model.weatherStateName =="Cloudy")
-  //
-  //   {
-  //     return "assets/cloudy.png";
-  //   }
-  //   else if(widget.model.weatherStateName == "Light rain")
-  //   {
-  //     return "assets/lightrain.png";
-  //   }else if(widget.model.weatherStateName == "Showers" || widget.model.weatherStateName == "Light Rain Shower")
-  //   {
-  //     return "assets/lightrainshower.png";
-  //   }else if(widget.model.weatherStateName == "Sleet"  || widget.model.weatherStateName=="Light Sleet" || widget.model.weatherStateName== "Light sleet showers")
-  //   {
-  //     return "assets/lightdrizzle.png";
-  //   }else if(widget.model.weatherStateName == "Snow" || widget.model.weatherStateName =="Mist")
-  //   {
-  //     return "assets/mist.png";
-  //   }else if(widget.model.weatherStateName == "Thunderstorm" || widget.model.weatherStateName == "Thunderyoutbreakspossible" || widget.model.weatherStateName =="Lighting" )
-  //   {
-  //     return "assets/thunderyoutbreakspossible.png";
-  //   }else if(widget.model.weatherStateName == "Heavy cloud")
-  //   {
-  //     return "assets/heavycloudy.png";
-  //   }else if(widget.model.weatherStateName == "Light cloud" || widget.model.weatherStateName == "Over cast")
-  //   {
-  //     return "assets/overcast.png";
-  //   }else if(widget.model.weatherStateName == "Lightning")
-  //   {
-  //     return "assets/lightning.png";
-  //   }else if(widget.model.weatherStateName == "Mist")
-  //   {
-  //     return "assets/mist.png";
-  //   }else if(widget.model.weatherStateName == "Patchy rain possible")
-  //   {
-  //     return "assets/patchyrainpossible.png";
-  //   }else if(widget.model.weatherStateName == "Patchy Snow Possible")
-  //   {
-  //     return "assets/patchy_snow_possible.png";
-  //   }else if(widget.model.weatherStateName == "Patchy Sleet Possible")
-  //   {
-  //     return "assets/patchy_sleet_possible.png";
-  //   }else if(widget.model.weatherStateName == "Patchy Freezing Drizzle Possible")
-  //   {
-  //     return "assets/patchy_freezing_drizzle_possible.png";
-  //   }else if(widget.model.weatherStateName == "Thundery Outbreaks Possible")
-  //   {
-  //     return "assets/thundery_outbreaks_possible.png";
-  //   }else if(widget.model.weatherStateName == "Blowing snow")
-  //   {
-  //     return "assets/overcast.png";
-  //   }else if(widget.model.weatherStateName == "Clear")
-  //   {
-  //     return "assets/clear.png";
-  //   }else if(widget.model.weatherStateName == "Partly cloudy")
-  //   {
-  //     return "assets/partlycloudy.png";
-  //   }
-  //   else if(widget.model.weatherStateName == "Moderate Rain Shower" || widget.model.weatherStateName == "Heavy Rain Shower")
-  //   {
-  //     return "assets/moderateorheavyrainshower.png";
-  //   } else if (widget.model.weatherStateName == "Moderate or Heavy Rain" || widget.model.weatherStateName == "Moderate rain")
-  //   {
-  //     return "assets/moderaterain.png";
-  //   }
-  //   else{
-  //     return "assets/clear.png";
-  //   }
-  // }
 }

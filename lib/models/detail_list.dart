@@ -50,7 +50,7 @@ class DetailListModel
     }else if(weatherStateName == "Heavy cloud")
     {
       return "assets/heavycloudy.png";
-    }else if(weatherStateName == "Light cloud" || weatherStateName == "Over cast")
+    }else if(weatherStateName == "Light cloud" || weatherStateName == "Overcast")
     {
       return "assets/overcast.png";
     }else if(weatherStateName == "Lightning")

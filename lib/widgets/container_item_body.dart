@@ -80,7 +80,7 @@ class ContainerItemBody extends StatelessWidget {
       children: [
         const ContainerItemBar(),
         Image.asset(
-          BlocProvider.of<HomeCubit>(context).getImage(),
+          BlocProvider.of<HomeCubit>(context).model!.getImage(),
           width: 180,
           height: 180,
         ),
