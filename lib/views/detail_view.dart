@@ -1,8 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_api/cubits/detail_screen/detail_screen_cubit.dart';
 import 'package:weather_api/cubits/home_cubit.dart';
 import 'package:weather_api/models/home_model.dart';
+
+import '../services/home_page_service.dart';
 
 class DetailView extends StatefulWidget {
   static String routeName = '/detail';
@@ -16,7 +20,6 @@ class _DetailViewState extends State<DetailView> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-
       SystemUiOverlayStyle(
         systemNavigationBarColor:
             Colors.blue.withOpacity(.6), // navigation bar color
@@ -58,9 +61,9 @@ class _DetailViewState extends State<DetailView> {
                     left: 15,
                     width: 360,
                     height: 320,
-                    child: BlocBuilder<HomeCubit, HomeState>(
+                    child: BlocBuilder<DetailScreenCubit, DetailScreenState>(
                       builder: (context, state) {
-                        if (state is HomeSucceed) {
+                        if (state is DetailScreenSucceed) {
                           final model = state.model;
                           return Container(
                             decoration: BoxDecoration(
@@ -197,9 +200,10 @@ class _DetailViewState extends State<DetailView> {
                               ],
                             ),
                           );
-                        } else if (state is HomeFailure) {
+                        }
+                        else if (state is DetailScreenFailure) {
                           return Center(
-                            child: Text(state.error),
+                            child: Text(state.errorMessage),
                           );
                         } else {
                           return const Center(

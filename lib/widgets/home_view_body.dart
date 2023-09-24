@@ -1,9 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_api/cubits/forecasts_list_cubit.dart';
 import 'package:weather_api/views/detail_view.dart';
 import 'package:weather_api/widgets/container_item.dart';
+import '../cubits/detail_screen/detail_screen_cubit.dart';
 import '../cubits/home_cubit.dart';
+import '../services/home_page_service.dart';
 import 'custom_text.dart';
 import 'list_view_home.dart';
 
@@ -56,10 +58,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        DetailView.routeName,
-                      );
+                      BlocProvider.of<DetailScreenCubit>(context).getDetailScreenData();
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return const DetailView();
+                      },));
                     },
                     child: const CustomText(
                       text: "Forecasts",
@@ -77,7 +79,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         );
       } else if (state is HomeFailure) {
         return Center(
-          child: Text(state.error),
+          child: Text("The error is : ${state.error}"),
         );
       } else {
         return const Center(

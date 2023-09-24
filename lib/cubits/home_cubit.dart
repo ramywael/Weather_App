@@ -88,7 +88,16 @@ class HomeCubit extends Cubit<HomeState> {
     }else if(model!.weatherStateName == "Heavy rain")
     {
       return "assets/heavyrain.png";
-    }else if(model!.weatherStateName == "Light ain")
+    }else if(model!.weatherStateName == "Cloud")
+      {
+        return "assets/cloud.png";
+      }
+    else if(model!.weatherStateName =="Cloudy")
+
+      {
+        return "assets/cloudy.png";
+      }
+    else if(model!.weatherStateName == "Light rain")
     {
       return "assets/lightrain.png";
     }else if(model!.weatherStateName == "Showers" || model!.weatherStateName == "Light Rain Shower")
@@ -156,10 +165,19 @@ class HomeCubit extends Cubit<HomeState> {
     if(  model!.condition == "Sunny" )
     {
       return "assets/sunny.png";
-    }else if(model!.condition == "Heavy rain")
+    }else if(model!.condition == "Cloud")
+    {
+      return "assets/cloud.png";
+    }
+    else if(model!.condition =="Cloudy")
+
+    {
+      return "assets/cloudy.png";
+    }
+    else if(model!.condition == "Heavy rain")
     {
       return "assets/heavyrain.png";
-    }else if(model!.condition == "Light ain")
+    }else if(model!.condition == "Light rain")
     {
       return "assets/lightrain.png";
     }else if(model!.condition == "Showers" || model!.condition == "Light Rain Shower")
